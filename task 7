@@ -1,0 +1,36 @@
+#task7
+contacts = []
+
+n = int(input("Enter number of contacts: "))
+
+for i in range(n):
+    name = input("Enter name: ")
+    phone = input("Enter phone: ")
+    email = input("Enter email: ")
+
+    contacts.append([name, phone, email])
+
+merged = []
+
+for c in contacts:
+    found = False
+
+    for m in merged:
+        if c[1] == m[1] or c[2] == m[2]:
+
+            if c[1] not in m[1]:
+                m[1] = m[1] + ", " + c[1]
+
+            if c[2] not in m[2]:
+                m[2] = m[2] + ", " + c[2]
+
+            found = True
+            break
+
+    if not found:
+        merged.append(c.copy())
+
+print("Merged Contacts:")
+
+for m in merged:
+    print(m)
